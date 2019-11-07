@@ -18,7 +18,7 @@ class GeometricLife: SCNNode {
      */
     static func setupGeometricLife(scnScene: SCNScene?) -> SCNNode {
         let life: SCNGeometry
-        life = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 1.0)
+        life = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 1.0)
         let lifeNode = SCNNode(geometry: life)
         scnScene?.rootNode.addChildNode(lifeNode)
         return lifeNode

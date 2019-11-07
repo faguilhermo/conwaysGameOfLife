@@ -29,7 +29,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         setupScene()
         Field.creatingLogicField()
         Field.creatingField(scnScene: scnScene)
-        Field.verifyingLife()
+        Field.verifyingLife(scnScene: scnScene)
         // User interface elements
         btnNextGeneration = creatingBtnNextGeneration()
         lblGenerationCount = creatingGenerationCountLabel(btnNextGeneration: btnNextGeneration ?? UIButton())
@@ -59,7 +59,9 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
         scnView?.allowsCameraControl = true
     }
     
-    // User interface elements
+    /*-----------------------------------*
+     *      User interface elements      *
+     *-----------------------------------*/
     func creatingBtnNextGeneration() -> UIButton {
         let btnSize: CGFloat = 70
         let button = CustomButton(frame: CGRect(x: screenSize.width/2 - btnSize/2, y: screenSize.height - 150, width: btnSize, height: btnSize))
@@ -76,7 +78,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     @objc func buttonAction(sender: UIButton?) {
         Rules.rules()
-        Field.verifyingLife()
+        Field.verifyingLife(scnScene: scnScene)
         generationCount += 1
         lblGenerationCount?.text = "Geração: " + String(generationCount)
     }
